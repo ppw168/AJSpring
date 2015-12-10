@@ -39,8 +39,11 @@
                     caivrsSearchService.searchResults = data;
                     caivrsSearchService.searchSubmitted = true;
                     $log.debug("Success!");
-                    $log.debug(JSON.stringify(data, null, 2));
-                    $location.path("/caivrsSearchResult");
+                    $log.debug(data.status);
+                    if (data.status.substring(0, 5) != 'Error')
+                    	$location.path("/caivrsSearchResult");
+                    else
+                    	$scope.searchResults = data;
                 })
             	.catch(function (errorMsg) {
                     $log.debug('Error Message: ' + errorMsg);

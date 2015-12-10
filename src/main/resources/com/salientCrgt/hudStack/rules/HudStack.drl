@@ -6,6 +6,27 @@ import java.util.HashMap;
 import java.util.List;
 
 
+ rule "Lender ID Check"
+ dialect "mvel"
+ when
+ 	errors: HashMap()
+ 	caivrsLookup: CaivrsLookup ( lenderID.length() != 10 ) 
+ then
+ 	// System.out.println("From DROOL validation - invalid lender ID.");
+ 	errors.put("Lender ID", "From DROOL validation - invalid lender ID.");
+ end
+ 
+
+ rule "Borrower Check"
+ dialect "mvel"
+ when
+ 	errors: HashMap()
+ 	cad: CaivrsAuthDetail ( caivrsBorrowerList.size == 0 ) 
+ then
+ 	// System.out.println("From DROOL validation - No borrower found.");
+ 	errors.put("Borrower", "From DROOL validation - No borrower found.");
+ end
+ 
 //rule "basic rule"
 //$entityList : List<F57BorrowerEntity>()
 //when
@@ -22,9 +43,9 @@ import java.util.List;
 //  System.out.println("fired from DROOL.");
 //end
 
- rule "basic rule"
- when
- 	F57BorrowerEntity ( txSuspendCode =="aaa" ) // condition
- then
- 	System.out.println("fired from DROOL.");
- end
+// rule "basic rule"
+// when
+// 	F57BorrowerEntity ( txSuspendCode =="aaa" ) // condition
+// then
+// 	System.out.println("fired from DROOL.");
+//  end

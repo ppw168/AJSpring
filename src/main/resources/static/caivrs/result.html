@@ -1,63 +1,75 @@
 <br>
 <div class="panel panel-primary">
-    <div class="panel-heading">
-        <h4>CAIVRS Search</h4>
-    </div>
-    <div class="panel-body">
-        <form data-ng-submit="search()">
-             <div class="alert alert-success alert-animation" data-ng-show="alertFlag">
-                <button type="button" class="close" aria-label="Close" data-ng-click="hideAlert()"><span aria-hidden="true">&times;</span> </button>
-                <strong>{{searchResults.status}}</strong>
-            </div>
+	<div class="panel-heading">
+		<h4>CAIVRS Search</h4>
+	</div>
+	<div class="panel-body">
+		<form data-ng-submit="search()">
+			<div class="alert alert-success alert-animation"
+				data-ng-show="alertFlag">
+				<button type="button" class="close" aria-label="Close"
+					data-ng-click="hideAlert()">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<strong>{{searchResults.status}}</strong>
+			</div>
 
-            <div class="panel panel-info" data-ng-repeat="index in [0,1,2,3,4]">
-                <div class="panel-heading">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-3 col-sm-offset-1 col-xs-6 text-nowrap">
-                                <strong>
-                            <span data-ng-show="index==0">Borrower </span>
-                            <span data-ng-show="index!=0">Coborrower {{index}} </span>
-                            <span data-ng-show="searchResults.caivrsAuthDetailList[index].indicator=='S'">SSN</span>
-                            <span data-ng-show="searchResults.caivrsAuthDetailList[index].indicator=='T'">TIN</span>
-                        </strong>
-                            </div>
-                            <div class="col-sm-2 col-xs-6 text-nowrap">
-                                {{searchResults.caivrsAuthDetailList[index].ssn | ssnFilter}}
-                            </div>
-                            <div class="col-sm-3 col-xs-6 text-nowrap">
-                                <strong>Authorization Number</strong>
-                            </div>
-                            <div class="col-sm-2 col-xs-6 text-nowrap">
-                                {{searchResults.caivrsAuthDetailList[index].authNo}}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel-body" data-ng-show="searchResults.caivrsAuthDetailList[index].caivrsAuthEntryList !== 'undefined' && searchResults.caivrsAuthDetailList[index].caivrsAuthEntryList.length > 0">
-                    <table class="table">
-						<thead>
-							<tr>
-								<th>Agency Name</th>
-								<th>Case Number</th>
-								<th>Case Type</th>
-								<th>Phone Referral</th>
-							</tr>
-						</thead>
-						<tbody>
-                            <tr data-ng-repeat="cae in searchResults.caivrsAuthDetailList[index].caivrsAuthEntryList">
-                                <td>{{cae.agency}}</td>
-                                <td>{{cae.caseNo}}</td>
-                                <td>{{cae.caseType}}</td>
-                                <td>{{cae.phone}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div style="text-align: center">
-                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span> New Search</button>
-            </div>
-        </form>
-    </div>
+			<div class="panel panel-info" data-ng-repeat="index in [0,1,2,3,4]">
+				<div class="panel-heading">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-3 col-sm-offset-1 col-xs-6 text-nowrap">
+								<strong> <span data-ng-show="index==0">Borrower
+								</span> <span data-ng-show="index!=0">Coborrower {{index}} </span> <span
+									data-ng-show="searchResults.caivrsAuthDetailList[index].indicator=='S'">SSN</span>
+									<span
+									data-ng-show="searchResults.caivrsAuthDetailList[index].indicator=='T'">TIN</span>
+								</strong>
+							</div>
+							<div class="col-sm-2 col-xs-6 text-nowrap">
+								{{searchResults.caivrsAuthDetailList[index].ssn | ssnFilter}}</div>
+							<div class="col-sm-3 col-xs-6 text-nowrap">
+								<strong>Authorization Number</strong>
+							</div>
+							<div class="col-sm-2 col-xs-6 text-nowrap">
+								{{searchResults.caivrsAuthDetailList[index].authNo}}</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel-body">
+					<div
+						data-ng-show="searchResults.caivrsAuthDetailList[index].caivrsBorrowerList !== 'undefined' && searchResults.caivrsAuthDetailList[index].caivrsBorrowerList.length > 0">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Agency Name</th>
+									<th>Case Number</th>
+									<th>Case Type</th>
+									<th>Phone Referrala</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr
+									data-ng-repeat="br in searchResults.caivrsAuthDetailList[index].caivrsBorrowerList">
+									<td>{{br.f57Agency.txName}}</td>
+									<td>{{br.id.txCaseNo}}</td>
+									<td>{{br.f57RefCaseCodeEntity.txDescription}}</td>
+									<td>{{br.f57Agency.txPhone}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="alert alert-danger"
+						data-ng-show="searchResults.caivrsAuthDetailList[index].status.substring(0, 5) == 'Error'">
+						<strong>{{searchResults.caivrsAuthDetailList[index].status}}</strong>
+					</div>
+				</div>
+			</div>
+			<div style="text-align: center">
+				<button class="btn btn-primary" type="submit">
+					<span class="glyphicon glyphicon-search"></span> New Search
+				</button>
+			</div>
+		</form>
+	</div>
 </div>
