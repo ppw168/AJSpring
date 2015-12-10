@@ -1,0 +1,62 @@
+<br>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h4>CAIVRS Search</h4>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" name="searchForm" data-ng-submit="onSubmit()">
+            <div class="container">
+                <div class="form-group">
+                    <div class="col-sm-3 col-sm-offset-4 text-center hidden-xs">
+                        <strong>SSN/TIN Indicator</strong>
+                    </div>
+                    <div class="col-sm-3 text-center hidden-xs">
+                        <strong>SSN/TIN Number<br/>(E.g. 999-99-9999)</strong>
+                    </div>
+                </div>
+                <div class="form-group" data-ng-repeat="index in [0,1,2,3,4]">
+                    <div class="col-sm-2 col-sm-offset-2 text-nowrap">
+                        <label><span data-ng-show="index==0">Borrower:</span>
+                            <span data-ng-show="index!=0">Coborrower {{index}}:</span></label>
+                    </div>
+                    <div class="col-sm-3" data-ng-class="{'has-error': !searchForm.$pristine && !searchForm.indi{{index}}.$valid}">
+                        <select name="indi{{index}}" class="form-control" data-ng-model="searchParams.caivrsBorrowerList[index].indicator" data-ng-required="index==0">
+                            <option value="">N/A</option>
+                            <option value="S">SSN</option>
+                            <option value="T">TIN</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-3" data-ng-class="{'has-error': !searchForm.$pristine && !searchForm.ssn{{index}}.$valid}">
+                        <div class="visible-xs">
+                            <label><font color="grey"> </font></label>
+                        </div>
+                        <input type="text" name="ssn{{index}}" class="col-md-12 form-control" data-ng-model="searchParams.caivrsBorrowerList[index].ssn" data-ui-mask="999-99-9999" data-ng-required="index==0" />
+                    </div>
+                </div>
+                <div class="form-group" data-ng-class="{'has-error': !searchForm.$pristine && !searchForm.lenderID.$valid}">
+                    <div class="col-sm-2 col-sm-offset-2">
+                        <label>Lender ID:</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <input name="lenderID" class="form-control" data-ng-model="searchParams.lenderID" required="required">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 col-sm-offset-2">
+                        <label>Agency:</label>
+                    </div>
+                    <div class="col-sm-6 text-left">
+                        <select name="agency" class="form-control" data-ng-model="searchParams.agencyCode">
+                            <option value="">Please Choose</option>
+                            <option data-ng-repeat="agency in agencyList" value="{{agency.txAgencyCode}}">{{agency.txName}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-12 text-center">
+                    <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span> Search</button>
+                    <button class="btn btn-primary" type="reset"><span class="glyphicon glyphicon-repeat"></span> Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
