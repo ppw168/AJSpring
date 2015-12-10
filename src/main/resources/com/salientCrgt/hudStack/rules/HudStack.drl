@@ -3,7 +3,6 @@ package com.salientCrgt.hudStack.rules
 import com.salientCrgt.hudStack.model.*;
 import com.salientCrgt.hudStack.bean.*;
 import java.util.HashMap;
-import java.util.List;
 
 
  rule "Lender ID Check"
@@ -26,26 +25,3 @@ import java.util.List;
  	// System.out.println("From DROOL validation - No borrower found.");
  	errors.put("Borrower", "From DROOL validation - No borrower found.");
  end
- 
-//rule "basic rule"
-//$entityList : List<F57BorrowerEntity>()
-//when
-//	 entityList.empty == true
-//then
-//	System.out.println("fired from DROOL.");
-//end
-
-//System.out.println("fired from DROOL.");
-// rule "Test Rule"
-// when
-//  when error1: HashMap()
-//then
-//  System.out.println("fired from DROOL.");
-//end
-
-// rule "basic rule"
-// when
-// 	F57BorrowerEntity ( txSuspendCode =="aaa" ) // condition
-// then
-// 	System.out.println("fired from DROOL.");
-//  end

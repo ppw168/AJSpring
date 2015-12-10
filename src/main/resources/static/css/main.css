@@ -64,6 +64,11 @@ body {
     z-index: 6666;
 }
 
+.alert-animation{
+    animation: slideInRight 0.4s both ease-in;
+    z-index: 8888;
+}
+
 .alert-animation.ng-hide {
     animation: rotateOutNewspaper 0.4s both ease-in;
     z-index: 7777;
