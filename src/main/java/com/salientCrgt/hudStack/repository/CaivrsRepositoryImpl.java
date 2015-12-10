@@ -14,34 +14,41 @@ import com.salientCrgt.hudStack.utils.AppUtils;
 
 @Repository
 public class CaivrsRepositoryImpl implements CaivrsRepository {
-	
-	@PersistenceContext
-	private EntityManager entityManager;
 
-	public List<F57BorrowerEntity> findBySsn(String ssn) {
+    @PersistenceContext
+    private EntityManager entityManager;
 
-		Query query = this.entityManager.createNamedQuery("F57BorrowerEntity.findBySsn", F57BorrowerEntity.class);
-		query.setParameter("ssn", ssn);
-		List<?> list = query.getResultList();
-		return AppUtils.castList(F57BorrowerEntity.class, list);
-		
-	}
+    @Override
+    public List<F57BorrowerEntity> findBySsn(final String ssn) {
 
-	public List<F57BorrowerEntity> findBySsnAgencyCode(String ssn, String agencyCode) {
+        final Query query = this.entityManager.createNamedQuery(
+                "F57BorrowerEntity.findBySsn", F57BorrowerEntity.class);
+        query.setParameter("ssn", ssn);
+        final List<?> list = query.getResultList();
+        return AppUtils.castList(F57BorrowerEntity.class, list);
 
-		Query query = this.entityManager.createNamedQuery("F57BorrowerEntity.findBySsnAgency");
-		query.setParameter("ssn", ssn);
-		query.setParameter("code", agencyCode);
-		List<?> list = query.getResultList();
-		return AppUtils.castList(F57BorrowerEntity.class, list);
-		
-	}
-	
-	public List<F57AgencyEntity> getAgencyList() {
-		
-		Query query = this.entityManager.createNamedQuery("F57AgencyEntity.findAll");		
-		return AppUtils.castList(F57AgencyEntity.class, query.getResultList());
-		
-	}
-	
+    }
+
+    @Override
+    public List<F57BorrowerEntity> findBySsnAgencyCode(final String ssn,
+            final String agencyCode) {
+
+        final Query query = this.entityManager
+                .createNamedQuery("F57BorrowerEntity.findBySsnAgency");
+        query.setParameter("ssn", ssn);
+        query.setParameter("code", agencyCode);
+        final List<?> list = query.getResultList();
+        return AppUtils.castList(F57BorrowerEntity.class, list);
+
+    }
+
+    @Override
+    public List<F57AgencyEntity> getAgencyList() {
+
+        final Query query = this.entityManager
+                .createNamedQuery("F57AgencyEntity.findAll");
+        return AppUtils.castList(F57AgencyEntity.class, query.getResultList());
+
+    }
+
 }

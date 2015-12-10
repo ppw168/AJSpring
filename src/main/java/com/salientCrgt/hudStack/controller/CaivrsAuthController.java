@@ -17,29 +17,31 @@ import com.salientCrgt.hudStack.model.F57AgencyEntity;
 import com.salientCrgt.hudStack.service.CaivrsService;
 
 @Controller
-@RequestMapping(value="/caivrsAuth")
+@RequestMapping(value = "/caivrsAuth")
 // @CrossOrigin(origins = "http://127.0.0.1:64990")
 public class CaivrsAuthController {
-	
-	@Autowired
+
+    @Autowired
     private CaivrsService caivrsService;
 
-	@RequestMapping(value = "/authDetails", method = RequestMethod.POST, produces = {
-			MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE }, consumes = {
-					MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
-	@ResponseBody
-	public CaivrsReturn authLookup(@RequestBody CaivrsLookup cl) {
+    @RequestMapping(value = "/authDetails", method = RequestMethod.POST, produces = {
+            MediaType.APPLICATION_JSON_VALUE,
+            MediaType.APPLICATION_XML_VALUE }, consumes = {
+                    MediaType.APPLICATION_JSON_VALUE,
+                    MediaType.APPLICATION_XML_VALUE })
+    @ResponseBody
+    public CaivrsReturn authLookup(@RequestBody final CaivrsLookup cl) {
 
-		return caivrsService.authSearch(cl);
-		
-	}
-	
-	@RequestMapping(value = "/agencyList", method = RequestMethod.GET, produces = {
-			MediaType.APPLICATION_JSON_VALUE})
-	@ResponseBody
-	public List<F57AgencyEntity> getAgencyList() {
-		
-		return caivrsService.getAgencyList();
-		
-	}
+        return this.caivrsService.authSearch(cl);
+
+    }
+
+    @RequestMapping(value = "/agencyList", method = RequestMethod.GET, produces = {
+            MediaType.APPLICATION_JSON_VALUE })
+    @ResponseBody
+    public List<F57AgencyEntity> getAgencyList() {
+
+        return this.caivrsService.getAgencyList();
+
+    }
 }

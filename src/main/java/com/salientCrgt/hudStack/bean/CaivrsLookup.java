@@ -8,38 +8,38 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class CaivrsLookup implements Serializable {
-	
-	private static final long serialVersionUID = 1L;
 
-	private ArrayList<CaivrsBorrower> caivrsBorrowerList = new ArrayList<CaivrsBorrower>();
-	private String lenderID;
-	private String agencyCode;
+    private static final long serialVersionUID = 1L;
 
-	@XmlElement
-	public ArrayList<CaivrsBorrower> getCaivrsBorrowerList() {
-		return caivrsBorrowerList;
-	}
+    private ArrayList<CaivrsBorrower> caivrsBorrowerList = new ArrayList<CaivrsBorrower>();
+    private String lenderID;
+    private String agencyCode;
 
-	public void setCaivrsBorrowerList(ArrayList<CaivrsBorrower> bl) {
-		this.caivrsBorrowerList = bl;
-	}
+    @XmlElement
+    public String getAgencyCode() {
+        return this.agencyCode;
+    }
 
-	@XmlElement
-	public String getLenderID() {
-		return lenderID;
-	}
+    @XmlElement
+    public ArrayList<CaivrsBorrower> getCaivrsBorrowerList() {
+        return this.caivrsBorrowerList;
+    }
 
-	public void setLenderID(String lenderID) {
-		this.lenderID = lenderID;
-	}
+    @XmlElement
+    public String getLenderID() {
+        return this.lenderID;
+    }
 
-	@XmlElement
-	public String getAgencyCode() {
-		return agencyCode;
-	}
+    public void setAgencyCode(final String agencyCode) {
+        this.agencyCode = agencyCode;
+    }
 
-	public void setAgencyCode(String agencyCode) {
-		this.agencyCode = agencyCode;
-	}
+    public void setCaivrsBorrowerList(final ArrayList<CaivrsBorrower> bl) {
+        this.caivrsBorrowerList = bl;
+    }
+
+    public void setLenderID(final String lenderID) {
+        this.lenderID = lenderID;
+    }
 
 }

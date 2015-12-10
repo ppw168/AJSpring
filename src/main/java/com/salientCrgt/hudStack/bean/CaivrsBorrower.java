@@ -6,65 +6,63 @@ import javax.xml.bind.annotation.XmlElement;
 
 public class CaivrsBorrower implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private String indicator;
-	private String ssn;
-	private String ssn1;
-	private String ssn2;
-	private String ssn3;
-	private String borrowerLabel;
+    private String indicator;
+    private String ssn;
+    private String ssn1;
+    private String ssn2;
+    private String ssn3;
+    private String borrowerLabel;
 
-	@XmlElement
-	public String getIndicator() {
-		return indicator;
-	}
+    public String getBorrowerLabel() {
+        return this.borrowerLabel;
+    }
 
-	public void setIndicator(String indicator) {
-		this.indicator = indicator;
-	}
-	
-	@XmlElement
-	public String getSsn() {
-		return ssn;
-	}
+    @XmlElement
+    public String getIndicator() {
+        return this.indicator;
+    }
 
-	public void setSsn(String ssn) {
-		this.ssn = ssn;
-	}
+    @XmlElement
+    public String getSsn() {
+        return this.ssn;
+    }
 
-	public String getSsn1() {
-		return ssn1;
-	}
+    public String getSsn1() {
+        return this.ssn1;
+    }
 
-	public void setSsn1(String ssn1) {
-		this.ssn1 = ssn1;
-	}
+    public String getSsn2() {
+        return this.ssn2;
+    }
 
-	public String getSsn2() {
-		return ssn2;
-	}
+    public String getSsn3() {
+        return this.ssn3;
+    }
 
-	public void setSsn2(String ssn2) {
-		this.ssn2 = ssn2;
-	}
+    public void setBorrowerLabel(final String borrowerLabel) {
+        this.borrowerLabel = borrowerLabel;
+    }
 
-	public String getSsn3() {
-		return ssn3;
-	}
+    public void setIndicator(final String indicator) {
+        this.indicator = indicator;
+    }
 
-	public void setSsn3(String ssn3) {
-		this.ssn3 = ssn3;
-	}
+    public void setSsn(final String ssn) {
+        this.ssn = ssn;
+    }
 
-	public String getBorrowerLabel() {
-		return borrowerLabel;
-	}
+    public void setSsn1(final String ssn1) {
+        this.ssn1 = ssn1;
+    }
 
-	public void setBorrowerLabel(String borrowerLabel) {
-		this.borrowerLabel = borrowerLabel;
-	}
-	
-	
+    public void setSsn2(final String ssn2) {
+        this.ssn2 = ssn2;
+    }
+
+    public void setSsn3(final String ssn3) {
+        this.ssn3 = ssn3;
+    }
 
 }

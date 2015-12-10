@@ -9,28 +9,27 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class CaivrsReturn implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-	
-	private String status;
-	
-	private ArrayList<CaivrsAuthDetail> caivrsAuthDetailList = new ArrayList<CaivrsAuthDetail>();
+    private static final long serialVersionUID = 1L;
 
-	
-	@XmlElement
-	public String getStatus() {
-		return status;
-	}
+    private String status;
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
+    private ArrayList<CaivrsAuthDetail> caivrsAuthDetailList = new ArrayList<CaivrsAuthDetail>();
 
-	@XmlElement
-	public ArrayList<CaivrsAuthDetail> getCaivrsAuthDetailList() {
-		return caivrsAuthDetailList;
-	}
+    @XmlElement
+    public ArrayList<CaivrsAuthDetail> getCaivrsAuthDetailList() {
+        return this.caivrsAuthDetailList;
+    }
 
-	public void setCaivrsAuthDetailList(ArrayList<CaivrsAuthDetail> al) {
-		this.caivrsAuthDetailList = al;
-	}
+    @XmlElement
+    public String getStatus() {
+        return this.status;
+    }
+
+    public void setCaivrsAuthDetailList(final ArrayList<CaivrsAuthDetail> al) {
+        this.caivrsAuthDetailList = al;
+    }
+
+    public void setStatus(final String status) {
+        this.status = status;
+    }
 }

@@ -8,8 +8,8 @@ import com.salientCrgt.hudStack.model.F57AgencyEntity;
 
 public interface CaivrsService {
 
-	public List<F57AgencyEntity> getAgencyList();
-	
-	public CaivrsReturn authSearch(CaivrsLookup cl);
-  
+    public CaivrsReturn authSearch(CaivrsLookup cl);
+
+    public List<F57AgencyEntity> getAgencyList();
+
 }

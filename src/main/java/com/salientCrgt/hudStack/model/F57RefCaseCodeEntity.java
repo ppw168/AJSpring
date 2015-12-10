@@ -10,45 +10,43 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
 /**
  * The persistent class for the F57_REF_CASE_CODE database table.
- * 
+ *
  */
 @Entity
-@Table(name="F57_REF_CASE_CODE")
-@NamedQuery(name="F57RefCaseCodeEntity.findAll", query="SELECT f FROM F57RefCaseCodeEntity f")
+@Table(name = "F57_REF_CASE_CODE")
+@NamedQuery(name = "F57RefCaseCodeEntity.findAll", query = "SELECT f FROM F57RefCaseCodeEntity f")
 public class F57RefCaseCodeEntity implements Serializable {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@Column(name="TX_CASE_CODE")
-	private String txCaseCode;
+    @Id
+    @Column(name = "TX_CASE_CODE")
+    private String txCaseCode;
 
-	@Column(name="TX_DESCRIPTION")
-	private String txDescription;
+    @Column(name = "TX_DESCRIPTION")
+    private String txDescription;
 
-	//bi-directional many-to-one association to F57BorrowerEntity
-	@OneToMany(mappedBy="f57RefCaseCodeEntity")
-	private List<F57BorrowerEntity> f57Borrowers;
-	
-	public F57RefCaseCodeEntity() {
-	}
+    // bi-directional many-to-one association to F57BorrowerEntity
+    @OneToMany(mappedBy = "f57RefCaseCodeEntity")
+    private List<F57BorrowerEntity> f57Borrowers;
 
-	public String getTxCaseCode() {
-		return this.txCaseCode;
-	}
+    public F57RefCaseCodeEntity() {}
 
-	public void setTxCaseCode(String txCaseCode) {
-		this.txCaseCode = txCaseCode;
-	}
+    public String getTxCaseCode() {
+        return this.txCaseCode;
+    }
 
-	public String getTxDescription() {
-		return this.txDescription;
-	}
+    public String getTxDescription() {
+        return this.txDescription;
+    }
 
-	public void setTxDescription(String txDescription) {
-		this.txDescription = txDescription;
-	}
+    public void setTxCaseCode(final String txCaseCode) {
+        this.txCaseCode = txCaseCode;
+    }
+
+    public void setTxDescription(final String txDescription) {
+        this.txDescription = txDescription;
+    }
 
 }

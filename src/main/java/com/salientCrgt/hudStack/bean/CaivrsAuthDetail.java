@@ -10,80 +10,81 @@ import com.salientCrgt.hudStack.model.F57BorrowerEntity;
 
 public class CaivrsAuthDetail implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private String ssn;	
-	private String authNo;
-	private String indicator;
-	private String borrowerLabel;
-	
-	private String status;
-	
-	// private ArrayList<CaivrsAuthEntry> caivrsAuthEntryList = new ArrayList<CaivrsAuthEntry>();
-	private List<F57BorrowerEntity> caivrsBorrowerList = new ArrayList<F57BorrowerEntity>();
+    private String ssn;
+    private String authNo;
+    private String indicator;
+    private String borrowerLabel;
 
-	@XmlElement
-	public String getSsn() {
-		return ssn;
-	}
+    private String status;
 
-	public void setSsn(String ssn) {
-		this.ssn = ssn;
-	}
+    // private ArrayList<CaivrsAuthEntry> caivrsAuthEntryList = new
+    // ArrayList<CaivrsAuthEntry>();
+    private List<F57BorrowerEntity> caivrsBorrowerList = new ArrayList<F57BorrowerEntity>();
 
-	@XmlElement
-	public String getAuthNo() {
-		return authNo;
-	}
+    @XmlElement
+    public String getAuthNo() {
+        return this.authNo;
+    }
 
-	public void setAuthNo(String authNo) {
-		this.authNo = authNo;
-	}
-	
-	@XmlElement
-	public String getIndicator() {
-		return indicator;
-	}
+    @XmlElement
+    public String getBorrowerLabel() {
+        return this.borrowerLabel;
+    }
 
-	public void setIndicator(String indicator) {
-		this.indicator = indicator;
-	}
+    @XmlElement
+    public List<F57BorrowerEntity> getCaivrsBorrowerList() {
+        return this.caivrsBorrowerList;
+    }
 
-	@XmlElement
-	public String getBorrowerLabel() {
-		return borrowerLabel;
-	}
+    @XmlElement
+    public String getIndicator() {
+        return this.indicator;
+    }
 
-	public void setBorrowerLabel(String borrowerLabel) {
-		this.borrowerLabel = borrowerLabel;
-	}
-	
-	@XmlElement
-	public String getStatus() {
-		return status;
-	}
+    @XmlElement
+    public String getSsn() {
+        return this.ssn;
+    }
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
+    @XmlElement
+    public String getStatus() {
+        return this.status;
+    }
 
-//	@XmlElement
-//	public ArrayList<CaivrsAuthEntry> getCaivrsAuthEntryList() {
-//		return caivrsAuthEntryList;
-//	}
-//
-//	public void setCaivrsAuthEntryList(ArrayList<CaivrsAuthEntry> al) {
-//		this.caivrsAuthEntryList = al;
-//	}
+    public void setAuthNo(final String authNo) {
+        this.authNo = authNo;
+    }
 
-	@XmlElement
-	public List<F57BorrowerEntity> getCaivrsBorrowerList() {
-		return caivrsBorrowerList;
-	}
+    public void setBorrowerLabel(final String borrowerLabel) {
+        this.borrowerLabel = borrowerLabel;
+    }
 
-	public void setCaivrsBorrowerList(List<F57BorrowerEntity> caivrsBorrowerList) {
-		this.caivrsBorrowerList = caivrsBorrowerList;
-	}
-		
-	
+    public void setCaivrsBorrowerList(
+            final List<F57BorrowerEntity> caivrsBorrowerList) {
+        this.caivrsBorrowerList = caivrsBorrowerList;
+    }
+
+    public void setIndicator(final String indicator) {
+        this.indicator = indicator;
+    }
+
+    // @XmlElement
+    // public ArrayList<CaivrsAuthEntry> getCaivrsAuthEntryList() {
+    // return caivrsAuthEntryList;
+    // }
+    //
+    // public void setCaivrsAuthEntryList(ArrayList<CaivrsAuthEntry> al) {
+    // this.caivrsAuthEntryList = al;
+    // }
+
+    public void setSsn(final String ssn) {
+        this.ssn = ssn;
+    }
+
+    public void setStatus(final String status) {
+        this.status = status;
+    }
+
 }
