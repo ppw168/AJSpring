@@ -11,7 +11,6 @@ import java.util.HashMap;
  	errors: HashMap()
  	caivrsLookup: CaivrsLookup ( lenderID.length() != 10 ) 
  then
- 	// System.out.println("Invalid lender ID. (DROOL)");
  	errors.put("Lender ID", "Invalid lender ID. (DROOL)");
  end
  
@@ -22,6 +21,5 @@ import java.util.HashMap;
  	errors: HashMap()
  	cad: CaivrsAuthDetail ( caivrsBorrowerList.size == 0 ) 
  then
- 	// System.out.println("No borrower found. (DROOL)");
  	errors.put("Borrower", "No borrower found. (DROOL)");
  end
