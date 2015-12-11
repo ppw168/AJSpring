@@ -1,7 +1,7 @@
 <br>
 <div class="alert alert-danger alert-animation"
-	data-ng-show="searchResults.status.substring(0, 5) == 'Error'">
-	<strong>{{searchResults.status}}</strong>
+	data-ng-show="has_error">
+	<strong>{{errorMsg}}</strong>
 </div>
 <div class="panel panel-primary">
 	<div class="panel-heading">

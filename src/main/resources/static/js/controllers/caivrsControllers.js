@@ -29,6 +29,7 @@
     	}
         
         $scope.onSubmit = function () {
+        	// $scope.errorMsg = null;
             $scope.submitting = true;
             $log.debug("submitting!");
             $log.debug($scope.searchParams);
@@ -42,12 +43,15 @@
                     $log.debug(data.status);
                     if (data.status.substring(0, 5) != 'Error')
                     	$location.path("/caivrsSearchResult");
-                    else
-                    	$scope.searchResults = data;
+                    else {
+                    	$scope.errorMsg = data.status;
+                    	$scope.has_error = true;
+            		}
                 })
-            	.catch(function (errorMsg) {
-                    $log.debug('Error Message: ' + errorMsg);
+            	.catch(function (errorMessage) {
+                    $log.debug('Error Message: ' + errorMessage);
                     $scope.has_error = true;
+                    $scope.errorMsg = errorMessage;
                 })
     		
         };
@@ -66,6 +70,7 @@
             $scope.searchResults = {};
             $scope.has_error = false;
             $scope.alertFlag = false;
+            $scope.errorMsg = null;
         };
 
         

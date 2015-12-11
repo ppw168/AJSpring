@@ -35,7 +35,8 @@
                 	return response.data;
                 })
             	.catch(function (response) {
-    	        	return $q.reject("Error searching: " + response.status);
+            		$log.debug(response);
+    	        	return $q.reject(response.data.message);
     	        });
         }
         

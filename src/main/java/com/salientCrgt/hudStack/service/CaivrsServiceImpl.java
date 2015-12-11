@@ -13,6 +13,7 @@ import com.salientCrgt.hudStack.bean.CaivrsAuthDetail;
 import com.salientCrgt.hudStack.bean.CaivrsBorrower;
 import com.salientCrgt.hudStack.bean.CaivrsLookup;
 import com.salientCrgt.hudStack.bean.CaivrsReturn;
+import com.salientCrgt.hudStack.exception.CaivrsException;
 import com.salientCrgt.hudStack.model.F57AgencyEntity;
 import com.salientCrgt.hudStack.model.F57BorrowerEntity;
 import com.salientCrgt.hudStack.repository.CaivrsRepository;
@@ -32,7 +33,7 @@ public class CaivrsServiceImpl implements CaivrsService {
     }
 
     @Override
-    public CaivrsReturn authSearch(final CaivrsLookup caivrsLookup) {
+    public CaivrsReturn authSearch(final CaivrsLookup caivrsLookup) throws CaivrsException {
         final CaivrsReturn cr = new CaivrsReturn();
 
         Map<String, String> errors = this.droolsValidate(caivrsLookup);
@@ -42,6 +43,7 @@ public class CaivrsServiceImpl implements CaivrsService {
             for (final String key : errors.keySet()) {
                 sb.append(errors.get(key));
             }
+            // throw new CaivrsException(sb.toString());
             cr.setStatus(sb.toString());
             return cr;
         }

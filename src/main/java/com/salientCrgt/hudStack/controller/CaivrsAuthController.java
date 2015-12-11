@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.salientCrgt.hudStack.bean.CaivrsLookup;
 import com.salientCrgt.hudStack.bean.CaivrsReturn;
+import com.salientCrgt.hudStack.exception.CaivrsException;
 import com.salientCrgt.hudStack.model.F57AgencyEntity;
 import com.salientCrgt.hudStack.service.CaivrsService;
 
@@ -30,7 +31,7 @@ public class CaivrsAuthController {
                     MediaType.APPLICATION_JSON_VALUE,
                     MediaType.APPLICATION_XML_VALUE })
     @ResponseBody
-    public CaivrsReturn authLookup(@RequestBody final CaivrsLookup cl) {
+    public CaivrsReturn authLookup(@RequestBody final CaivrsLookup cl) throws CaivrsException {
 
         return this.caivrsService.authSearch(cl);
 
