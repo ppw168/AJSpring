@@ -42,11 +42,11 @@
                     $log.debug("Success!");
                     $log.debug(data.status);
                     if (data.status.substring(0, 5) != 'Error')
-                    	$location.path("/caivrsSearchResult");
-                    else {
-                    	$scope.errorMsg = data.status;
-                    	$scope.has_error = true;
-            		}
+                     	$location.path("/caivrsSearchResult");
+                    // else {
+                    //	$scope.errorMsg = data.status;
+                    //	$scope.has_error = true;
+            		// }
                 })
             	.catch(function (errorMessage) {
                     $log.debug('Error Message: ' + errorMessage);

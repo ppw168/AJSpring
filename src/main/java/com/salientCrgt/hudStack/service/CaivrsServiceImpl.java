@@ -43,9 +43,9 @@ public class CaivrsServiceImpl implements CaivrsService {
             for (final String key : errors.keySet()) {
                 sb.append(errors.get(key));
             }
-            // throw new CaivrsException(sb.toString());
-            cr.setStatus(sb.toString());
-            return cr;
+            throw new CaivrsException(sb.toString());
+            // cr.setStatus(sb.toString());
+            // return cr;
         }
 
         CaivrsAuthDetail cad = null;
