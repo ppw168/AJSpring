@@ -19,7 +19,7 @@ import java.util.HashMap;
  dialect "mvel"
  when
  	errors: HashMap()
- 	cad: CaivrsAuthDetail ( caivrsBorrowerList.size == 0 ) 
+ 	cad: CaivrsAuthDetail ( caivrsBorrowerList.size() == 0 ) 
  then
  	errors.put("Borrower", "No borrower found. (DROOL)");
  end

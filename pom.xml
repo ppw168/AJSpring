@@ -18,6 +18,23 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
+	<repositories>
+		<repository>
+			<id>central</id>
+			<name>Maven Repository Switchboard</name>
+			<layout>default</layout>
+			<url>http://repo1.maven.org/maven2</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>mavenRepo</id>
+			<name>mavenRepo</name>
+			<url>http://repository.jboss.org/nexus/content/groups/public/</url>
+		</repository>
+	</repositories>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.7</java.version>
@@ -58,12 +75,25 @@
 		<dependency>
 			<groupId>org.kie</groupId>
 			<artifactId>kie-ci</artifactId>
-			<version>6.3.0.Final</version>
+			<version>6.1.0.Final</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.jboss.dashboard-builder</groupId>
+					<artifactId>dashboard-builder-bom</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
-		
+
+		<!-- <dependency> -->
+		<!-- <groupId>org.drools</groupId> -->
+		<!-- <artifactId>drools-compiler</artifactId> -->
+		<!-- <version>6.1.0.Final</version> -->
+		<!-- </dependency> -->
+
 	</dependencies>
 
 	<build>
+		<finalName>AJSpring</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

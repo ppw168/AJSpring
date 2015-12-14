@@ -4,3 +4,4 @@ target/
 .project
 .mvn/
 .springBeans
+log.txt
