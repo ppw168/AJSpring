@@ -1,0 +1,14 @@
+1. Source code is in the GitHub repository: https://github.com/ppw168/AJSpring.git
+
+2. Oracle Database script is inside "Database export 2015-12-14.sql" file.
+
+3. Database connection parameters are in the "application.properties" file under "src/main/resources" directory. Username/password has been obscured for distribution.
+
+4. Application context is set to "AJSpring" in the same "application.properties" file. It determines the web URL (http://******:8080/AJSpring/#/).
+
+5. Application is set to output "war" file because it was intended to be tested under a standalone Tomcat server. Use "mvn clean" and then "mvn package" to build. The output  should be "AJSpring.war" under target directory.
+
+6. Due to legal reasons, Oracle JDBC driver is not available in central Maven repository. Driver file will need to be manually import into local Maven repository:
+mvn install:install-file -Dfile=ojdbc7.jar  -DgroupId=com.oracle -DartifactId=ojdbc7 -Dversion=12.1.0.1 -Dpackaging=jar
+
+7. Once deployed to a web server, testing link is http://******:8080/AJSpring/#/
